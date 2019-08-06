@@ -1,0 +1,18 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "mini-breakpad-server.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "mini-breakpad-server.name" . }}
+    helm.sh/chart: {{ include "mini-breakpad-server.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      # Field required so setting to 1Mi to remind us that it's "unlimited" (efs)
+      storage: 1Mi

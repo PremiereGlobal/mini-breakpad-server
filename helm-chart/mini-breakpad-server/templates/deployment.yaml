@@ -42,6 +42,18 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - name: efs-pvc
+            mountPath: /app/pool/files/minidump/
+            subPath: files
+          - name: efs-pvc
+            mountPath: /app/pool/database/dirty/
+            subPath: db
+      volumes:
+        - name: efs-pvc
+          persistentVolumeClaim:
+            claimName: {{ include "mini-breakpad-server.fullname" . }}
+            readOnly: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
