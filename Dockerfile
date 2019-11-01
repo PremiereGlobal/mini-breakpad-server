@@ -1,6 +1,6 @@
 FROM node:11.13
 
-ENV ELECTRON_SYMBOL_VERSION=5.0.8
+ENV ELECTRON_SYMBOL_VERSION=5.0.11
 
 RUN mkdir /symbols && mkdir -p /app/pool/symbols
 
