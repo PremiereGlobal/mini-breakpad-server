@@ -9,7 +9,7 @@ WORKDIR /symbols
 
 RUN curl -L -o darwin.x64.zip https://github.com/electron/electron/releases/download/v5.0.11/electron-v5.0.11-darwin-x64-symbols.zip && unzip darwin.x64.zip && mv breakpad_symbols/* /app/pool/symbols && rm -rf ./*
 
-RUN curl -L -o win32.zip https://github.com/electron/electron/releases/download/v5.0.11/electron-v$5.0.11-win32-ia32-symbols.zip && unzip win32.zip && mv breakpad_symbols/* /app/pool/symbols && rm -rf ./*
+RUN curl -L -o win32.zip https://github.com/electron/electron/releases/download/v5.0.11/electron-v5.0.11-win32-ia32-symbols.zip && unzip win32.zip && mv breakpad_symbols/* /app/pool/symbols && rm -rf ./*
 
 RUN npm install -g grunt
 
