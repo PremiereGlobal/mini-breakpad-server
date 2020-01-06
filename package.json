@@ -1,7 +1,7 @@
 {
   "name": "mini-breakpad-server",
   "description": "Minimum breakpad crash reports collecting server",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "bin": {
     "mini-breakpad-server": "bin/mini-breakpad-server"
   },
