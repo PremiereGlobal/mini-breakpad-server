@@ -1,24 +1,20 @@
 FROM node:11.13
 
-ENV ELECTRON_SYMBOL_VERSION=5.0.11
-ENV SYMBOL_DIRECTORY=breakpad_symbols
-
-RUN mkdir /symbols && mkdir -p /app/pool/symbols
-
-WORKDIR /symbols
-
-RUN curl -L -o darwin.x64.zip https://github.com/electron/electron/releases/download/v5.0.11/electron-v5.0.11-darwin-x64-symbols.zip && unzip darwin.x64.zip && mv breakpad_symbols/* /app/pool/symbols && rm -rf ./*
-
-RUN curl -L -o win32.zip https://github.com/electron/electron/releases/download/v5.0.11/electron-v5.0.11-win32-ia32-symbols.zip && unzip win32.zip && mv breakpad_symbols/* /app/pool/symbols && rm -rf ./*
-
+RUN apt-get -y clean && apt-get -y update && apt-get install -y rsync
 RUN npm install -g grunt
+
+RUN mkdir -p /app/pool/symbols
 
 ADD src /app/src
 ADD package.json /app
 ADD views /app/views
 ADD Gruntfile.coffee /app
+ADD electron_versions_runner.sh /app
+ADD electron_versions.txt /app
 
 WORKDIR /app
+
+RUN ./electron_versions_runner.sh
 
 RUN npm install .
 
