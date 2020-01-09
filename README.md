@@ -21,3 +21,9 @@ Minimum collecting server for crash reports sent by
 ```
 docker build -t premiereglobal/mini-breakpad-server:dev .
 ```
+
+## Maintaining Symbol Files
+
+The mini-breakpad-server supports having multiple symbol files in the symbols directory for different electron versions. Use `electron_versions.txt` to list the versions and the name of the symbols directory that we want to extract into the app/pool/symbols directory.
+
+To add new versions, simply add a new line with the version and name of symbols directory separated by a space.

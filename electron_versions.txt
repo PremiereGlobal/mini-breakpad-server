@@ -1,0 +1,4 @@
+3.0.10 electron.breakpad.syms
+5.0.8 breakpad_symbols
+5.0.11 breakpad_symbols
+7.1.2 breakpad_symbols
