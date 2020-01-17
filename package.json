@@ -1,7 +1,7 @@
 {
   "name": "mini-breakpad-server",
   "description": "Minimum breakpad crash reports collecting server",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "bin": {
     "mini-breakpad-server": "bin/mini-breakpad-server"
   },
@@ -21,7 +21,7 @@
     "github-releases": "0.4.2",
     "glob": "^7.0.0",
     "method-override": "^3.0.0",
-    "minidump": "0.15.0",
+    "minidump": "0.19.0",
     "mkdirp": "~0.3.5",
     "pug": "^2.0.0",
     "uuid": "^3.0.0",
