@@ -1,9 +1,23 @@
 extends layout
 
 block content
+  style
+    include table.css
   h1= title
-  ol
+  table
+    tr
+      th id
+      th Electron Version
+      th OS
+      th Product
+      th Product Version
+      th Time
     each record in records
-      li
-        a(href='view/' + record.id)
-          = 'v' + record.fields._version + ' ' + record.fields.platform + ' ' + record.time.toLocaleString()
+      tr
+        td
+          a(href='view/' + record.id)=record.id
+        td= record.version
+        td= record.fields.platform
+        td= record.fields._productName
+        td= record.fields._version
+        td= record.time.toLocaleString()
