@@ -15,6 +15,7 @@ class Database extends EventEmitter
       throw new Error("Cannot create directory: #{dist}") if err?
 
       @db = dirty filename
+      @db.on 'error', (e) -> console.log 'DB ERROR ' + e
       @db.on 'load', @emit.bind(this, 'load')
 
   # Public: Saves a record to database.
